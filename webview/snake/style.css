@@ -1,0 +1,49 @@
+body {
+  margin:0;
+  background: rgba(0,0,0,0.5);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:Arial;
+  overflow:hidden;
+}
+
+.popup {
+  background:#020617;
+  border:2px solid #22c55e;
+  box-shadow:0 0 60px #22c55eaa;
+  padding:16px;
+  border-radius:12px;
+  text-align:center;
+  width:450px;
+  position:relative;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn { from {opacity:0; transform:scale(0.7);} to {opacity:1; transform:scale(1);} }
+
+canvas {
+  display:block;
+  margin:0 auto;
+  border:2px solid #22c55e;
+  background:#020617;
+}
+
+.hud {
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+button {
+  margin:4px;
+  padding:6px 12px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+#overlay { margin-top:8px; }
