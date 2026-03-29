@@ -1,3 +1,4 @@
+/* ---------- BASE ---------- */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -10,7 +11,7 @@ body {
   transition: background 0.5s ease;
 }
 
-/* Board container */
+/* ---------- BOARD ---------- */
 #board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
@@ -20,7 +21,7 @@ body {
   margin-top: 20px;
 }
 
-/* Cells */
+/* ---------- CELLS ---------- */
 .cell {
   display: flex;
   align-items: center;
@@ -30,62 +31,81 @@ body {
   border-radius: 10px;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Hover effect */
+/* Hover */
 .cell:hover {
   background-color: #e2e8f0;
+  transform: scale(1.05);
 }
 
-/* Pop animation only for new moves */
+/* Click feedback */
+.cell:active {
+  transform: scale(0.95);
+}
+
+/* Pop animation */
 .cell.pop {
   animation: pop 0.3s ease forwards;
 }
 
-/* Winning line highlight */
+/* Winning cells */
 .winning-cell {
   background-color: #4ade80 !important;
   color: #fff;
   font-weight: bold;
+  box-shadow: 0 0 15px #4ade80;
 }
 
-/* Pop animation keyframes */
+/* ---------- ANIMATIONS ---------- */
 @keyframes pop {
   0% { transform: scale(0); opacity: 0; }
   60% { transform: scale(1.2); opacity: 1; }
   100% { transform: scale(1); }
 }
 
-/* Info text */
+/* ---------- INFO TEXT ---------- */
 #info {
   text-align: center;
   font-size: 1.5rem;
   margin-top: 20px;
   transition: opacity 0.3s ease;
+  color: #f9fafb;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
-/* Overlay for mode selection */
+/* ---------- OVERLAY ---------- */
 #overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
-  font-family: sans-serif;
   z-index: 1000;
 }
 
+/* Titles */
 #overlay h2 {
   margin-bottom: 20px;
 }
 
+#overlay h3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+/* ---------- BUTTONS ---------- */
 #overlay button {
   margin: 5px;
   padding: 10px 25px;
@@ -95,15 +115,33 @@ body {
   cursor: pointer;
   background-color: #2563eb;
   color: white;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: all 0.2s ease;
 }
 
+/* Hover */
 #overlay button:hover {
   background-color: #1d4ed8;
   transform: scale(1.05);
 }
 
-/* Restart / Change mode buttons */
+/* 🎯 SELECTED MODE BUTTON */
+#overlay button.selected {
+  background-color: #22c55e; /* green highlight */
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(34,197,94,0.7);
+}
+
+/* ---------- SYMBOL BUTTONS ---------- */
+#overlay button[data-symbol] {
+  background-color: #9333ea;
+}
+
+#overlay button[data-symbol]:hover {
+  background-color: #7e22ce;
+}
+
+/* ---------- RESTART BUTTON ---------- */
 #restart {
   display: none;
   margin-top: 15px;
@@ -114,10 +152,27 @@ body {
   cursor: pointer;
   background-color: #2563eb;
   color: white;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: all 0.2s ease;
 }
 
 #restart:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+
+/* ---------- CHANGE MODE BUTTON ---------- */
+button:last-of-type {
+  margin-top: 10px;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+button:last-of-type:hover {
   background-color: #1d4ed8;
   transform: scale(1.05);
 }

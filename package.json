@@ -1,6 +1,7 @@
 {
-  "name": "sas",
-  "displayName": "SAS",
+  "name": "sas-games",
+  "displayName": "SAS-games",
+  "publisher": "sas-games",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -20,17 +21,26 @@
       {
         "command": "sas.tic-tac-toe",
         "title": "Tic-tac-toe ❌🔴"
+      },
+      {
+        "command": "sas.gtw",
+        "title": "Guess-the-word 🐕"
       }
     ],
     "keybindings":[
       {
         "command": "sas.Snake",
-        "key": "ctrl+shift+s",
+        "key": "ctrl+shift+alt+s",
         "when": "editorTextFocus"
       },
       {
         "command": "sas.tic-tac-toe",
-        "key": "ctrl+shift+t",
+        "key": "ctrl+shift+alt+t",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "sas.gtw",
+        "key": "ctrl+shift+alt+g",
         "when": "editorTextFocus"
       }
     ]

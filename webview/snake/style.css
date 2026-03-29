@@ -1,49 +1,213 @@
+/* ===== VARIABLES ===== */
+:root {
+  --bg-dark: #020617;
+  --bg-popup: #020617;
+  --accent-green: #22c55e;
+  --accent-green-light: #4ade80;
+  --text-light: #e2e8f0;
+  --text-muted: #64748b;
+  --button-bg: #1e2937;
+  --button-hover: #334155;
+  --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin:0;
-  background: rgba(0,0,0,0.5);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  font-family:Arial;
-  overflow:hidden;
+  margin: 0;
+  padding: 0;
+  background: rgba(2, 6, 23, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: var(--font-main);
+  color: var(--text-light);
+  overflow: hidden;
 }
 
+/* ===== POPUP CONTAINER ===== */
 .popup {
-  background:#020617;
-  border:2px solid #22c55e;
-  box-shadow:0 0 60px #22c55eaa;
-  padding:16px;
-  border-radius:12px;
-  text-align:center;
-  width:450px;
-  position:relative;
-  animation: fadeIn 0.3s ease-out;
+  background: var(--bg-popup);
+  border: 3px solid var(--accent-green);
+  box-shadow: 
+    0 0 80px rgba(34, 197, 94, 0.4),
+    inset 0 0 40px rgba(34, 197, 94, 0.08);
+  padding: 20px 24px;
+  border-radius: 16px;
+  text-align: center;
+  width: 480px;
+  max-width: 95vw;
+  animation: popupFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes fadeIn { from {opacity:0; transform:scale(0.7);} to {opacity:1; transform:scale(1);} }
+.popup::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(34,197,94,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  animation: subtleGlow 8s ease-in-out infinite;
+}
 
+@keyframes popupFadeIn {
+  from { opacity: 0; transform: scale(0.75) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes subtleGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+/* ===== CANVAS ===== */
 canvas {
-  display:block;
-  margin:0 auto;
-  border:2px solid #22c55e;
-  background:#020617;
+  display: block;
+  margin: 12px auto;
+  border: 3px solid var(--accent-green);
+  border-radius: 10px;
+  background: var(--bg-dark);
+  box-shadow: 
+    0 0 40px rgba(34, 197, 94, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.6);
+  image-rendering: pixelated;
 }
 
+/* ===== HUD ===== */
 .hud {
-  display:flex;
-  justify-content:space-between;
-  font-size:14px;
-  margin-bottom:8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--accent-green-light);
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
 }
 
+.hud span { font-family: monospace; letter-spacing: 1px; }
+
+/* ===== OVERLAY ===== */
+#overlay {
+  margin-top: 12px;
+  color: var(--text-light);
+  min-height: 140px;
+}
+
+/* ===== MENU SECTIONS ===== */
+.menu-section {
+  margin: 18px 0;
+}
+
+.menu-section .label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* ===== BUTTON GROUPS ===== */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ===== BUTTONS ===== */
 button {
-  margin:4px;
-  padding:6px 12px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:bold;
+  padding: 10px 18px;
+  margin: 2px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  background: var(--button-bg);
+  color: var(--text-light);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  min-width: 90px;
 }
 
-#overlay { margin-top:8px; }
+button:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(34, 197, 94, 0.2);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* Active / Selected */
+button.active,
+button.selected {
+  background: var(--accent-green);
+  color: #0f172a;
+  box-shadow: 0 0 15px var(--accent-green), 0 0 25px rgba(34,197,94,0.5);
+  transform: scale(1.08);
+  font-weight: 700;
+}
+
+/* Start Button */
+.start-btn {
+  margin-top: 20px;
+  padding: 14px 32px;
+  font-size: 16px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-green-light));
+  color: #0f172a;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+  min-width: 160px;
+}
+
+.start-btn:hover {
+  background: linear-gradient(90deg, var(--accent-green-light), #86efac);
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.8);
+}
+
+/* Game Over */
+#overlay h2 {
+  margin: 10px 0 16px;
+  font-size: 28px;
+  color: #f87171;
+  text-shadow: 0 0 12px rgba(248, 113, 113, 0.6);
+}
+
+.score {
+  font-size: 18px;
+  margin: 12px 0;
+  color: var(--accent-green-light);
+}
+
+/* Rainbow Skin */
+.skin-btn[style*="linear-gradient"] {
+  background-size: 300% 300%;
+  animation: rainbowShift 3s linear infinite;
+}
+
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 520px) {
+  .popup { width: 90vw; padding: 16px 20px; }
+  button { min-width: 70px; font-size: 13px; padding: 8px 14px; }
+  .start-btn { min-width: 140px; padding: 12px 24px; font-size: 15px; }
+}

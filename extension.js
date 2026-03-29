@@ -47,6 +47,13 @@ function activate(context) {
       createWebview('Tic-tac-toe ❌🔴', 'tic-tac-toe');
     })
   );
+
+  // Register Termo command
+  context.subscriptions.push(
+    vscode.commands.registerCommand('sas.gtw', () => {
+      createWebview('Guess-the-word 🐕', 'gtw');
+    })
+  );
 }
 
 // Optional deactivate function
