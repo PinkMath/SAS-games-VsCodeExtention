@@ -54,7 +54,7 @@ You can run the games using VS Code commands or assign your own keyboard shortcu
 
 1. Clone or download the repository:
 ```bash
-git clone 
+git clone https://github.com/PinkMath/SAS-games-VsCodeExtention.git
 ```
 
 2. Open the folder in VS Code.
