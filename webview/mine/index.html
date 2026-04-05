@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper Lite</title>
+  <link rel="stylesheet" href="${style}">
+</head>
+<body>
+  <h1>Minesweeper</h1>
+  <div id="controls">
+    <label>Mode:
+      <select id="mode-select">
+        <option value="easy">Easy</option>
+        <option value="normal" selected>Normal</option>
+        <option value="hard">Hard</option>
+      </select>
+    </label>
+    <span id="flags">Flags: 0</span>
+    <button id="restart-btn">Restart</button>
+  </div>
+  <div id="game-board" class="board"></div>
+  <div id="win-screen" class="hidden">
+    <h2>You Won!</h2>
+    <button id="win-restart-btn">Play Again</button>
+  </div>
+  <script src="${script}"></script>
+</body>
+</html>

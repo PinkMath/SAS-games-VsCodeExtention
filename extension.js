@@ -68,6 +68,18 @@ function activate(context) {
       createWebview('Guess-the-word 🐕', 'gtw');
     })
   );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand('sas.memory', () => {
+      createWebview('Memory Match 🧠', 'memory');
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand('sas.minesweeper', () => {
+      createWebview('Minesweeper 💣', 'mine');
+    })
+  );
 }
 
 function deactivate() {}

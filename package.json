@@ -3,7 +3,7 @@
   "displayName": "SAS-games",
   "publisher": "sas-games",
   "description": "",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.110.0"
   },
@@ -13,14 +13,24 @@
   "activationEvents": [
     "onCommand:sas.Snake",
     "onCommand:sas.tic-tac-toe",
-    "onCommand:sas.gtw"
+    "onCommand:sas.gtw",
+    "onCommand:sas.memory",
+    "onCommand:sas.minesweeper"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
         "command": "sas.Snake",
-        "title": "Snake Game 🐍"
+        "title": "Snake 🐍"
+      },
+      {
+        "command": "sas.memory",
+        "title": "Memory Match 🧠"
+      },
+      {
+        "command": "sas.minesweeper",
+        "title": "Minesweeper 💣"
       },
       {
         "command": "sas.tic-tac-toe",
@@ -32,6 +42,16 @@
       }
     ],
     "keybindings":[
+      {
+        "command": "sas.memory",
+        "key": "ctrl+shift+alt+m",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "sas.minesweeper",
+        "key": "ctrl+shift+alt+n",
+        "when": "editorTextFocus"
+      },
       {
         "command": "sas.Snake",
         "key": "ctrl+shift+alt+s",

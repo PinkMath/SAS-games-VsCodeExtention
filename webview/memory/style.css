@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+#moves {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-gap: 10px;
+  perspective: 1000px; /* for 3D flip */
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transition: transform 0.6s ease; /* smooth flip */
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  user-select: none;
+}
+
+.card-front {
+  background-color: #444;
+  color: white;
+}
+
+.card-back {
+  background-color: #4caf50;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+#win-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+#win-screen.hidden {
+  display: none;
+}
+
+#restart-btn {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: white;
+}
