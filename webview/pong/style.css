@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  background: #111827;
+  color: #e5e7eb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #6b7280;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+canvas {
+  background-color: #374151;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}

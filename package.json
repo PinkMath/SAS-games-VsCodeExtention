@@ -3,7 +3,7 @@
   "displayName": "SAS-games",
   "publisher": "sas-games",
   "description": "",
-  "version": "2.1.0",
+  "version": "2.5.0",
   "engines": {
     "vscode": "^1.110.0"
   },
@@ -15,6 +15,7 @@
     "onCommand:sas.tic-tac-toe",
     "onCommand:sas.gtw",
     "onCommand:sas.memory",
+    "onCommand:sas.pong",
     "onCommand:sas.minesweeper"
   ],
   "main": "./extension.js",
@@ -23,6 +24,10 @@
       {
         "command": "sas.Snake",
         "title": "Snake 🐍"
+      },
+      {
+        "command": "sas.pong",
+        "title": "Pong 🎮"
       },
       {
         "command": "sas.memory",
@@ -45,6 +50,11 @@
       {
         "command": "sas.memory",
         "key": "ctrl+shift+alt+m",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "sas.pong",
+        "key": "ctrl+shift+alt+o",
         "when": "editorTextFocus"
       },
       {

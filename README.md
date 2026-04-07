@@ -1,6 +1,6 @@
 # 🎮 SAS Games Extension for VS Code
 
-Play Tic-Tac-Toe, Snake, Guess-the-word, Minesweeper, and Memory Match directly inside VS Code with this fun and interactive extension!
+Play Tic-Tac-Toe, Snake, Guess-the-word, Minesweeper, Pong and Memory Match directly inside VS Code with this fun and interactive extension!
 
 ## Features
 
@@ -47,6 +47,13 @@ Play Tic-Tac-Toe, Snake, Guess-the-word, Minesweeper, and Memory Match directly 
 - Tracks moves and time for a challenge.
 - Restart anytime or change difficulty.
 
+### Pong 🏓
+- Classic Pong game with smooth paddle and ball movement.
+- Two-player mode: Player 1 uses W/S keys, Player 2 uses Up/Down arrows.
+- Real-time score tracking.
+- Restart button resets scores and ball position.
+- Clean minimalist design optimized for VS Code.
+
 ## Commands
 
 You can run the games using VS Code commands or assign your own keyboard shortcuts.
@@ -58,6 +65,7 @@ You can run the games using VS Code commands or assign your own keyboard shortcu
 | `SAS: Guess the word` | Open a word-guessing game panel in VS Code      | `Ctrl+Shift+Alt+G` |
 | `SAS: Minesweeper` |  Classic Minesweeper with flags and animations     | `Ctrl+Shift+Alt+N` |
 | `SAS: Memory Match` |  Classic Memory Match, choose the rights matchs to win     | `Ctrl+Shift+Alt+M` |
+| `SAS: Pong` |   Classic Pong game with two-player keyboard controls    | `Ctrl+Shift+Alt+O` |
 
 ### If the commands don't work use `Ctrl+Shift+P`, and search for the game.
 
@@ -87,6 +95,7 @@ git clone https://github.com/PinkMath/SAS-games-VsCodeExtention.git
 - SAS: Guess the word
 - SAS: Minesweeper
 - SAS: Memory Match
+- SAS: Pong
 
 5. Enjoy!
 
@@ -120,6 +129,11 @@ git clone https://github.com/PinkMath/SAS-games-VsCodeExtention.git
 - Find matching pairs to clear the board.
 - Restart anytime or change difficulty.
 
+### Pong
+- Player 1: Move paddle up/down with W and S keys.
+- Player 2: Move paddle up/down with Up and Down arrow keys.
+- Restart button resets scores and ball position.
+
 ## File Structure
 
 ```
@@ -133,20 +147,24 @@ sas-extension/
     │   ├─ index.html
     │   ├─ style.css
     │   └─ script.js
-    └─ tic-tac-toe/
+    ├─ tic-tac-toe/
     │   ├─ index.html
     │   ├─ style.css
     │   └─ script.js
-    └─ gtw/
-    │    ├─ index.html
-    │    ├─ style.css
-    │    └─ script.js
-    └─ memory/
-    │    ├─ index.html
-    │    ├─ style.css
-    │    └─ script.js
-    └─ mine/
-         ├─ index.html
-         ├─ style.css
-         └─ script.js
+    ├─ gtw/
+    │   ├─ index.html
+    │   ├─ style.css
+    │   └─ script.js
+    ├─ memory/
+    │   ├─ index.html
+    │   ├─ style.css
+    │   └─ script.js
+    ├─ mine/
+    │   ├─ index.html
+    │   ├─ style.css
+    │   └─ script.js
+    └─ pong/
+        ├─ index.html
+        ├─ style.css
+        └─ script.js
 ```

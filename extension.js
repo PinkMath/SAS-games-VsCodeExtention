@@ -80,6 +80,12 @@ function activate(context) {
       createWebview('Minesweeper 💣', 'mine');
     })
   );
+  
+  context.subscriptions.push(
+    vscode.commands.registerCommand('sas.pong', () => {
+      createWebview('Pong 🎮', 'pong');
+    })
+  );
 }
 
 function deactivate() {}
